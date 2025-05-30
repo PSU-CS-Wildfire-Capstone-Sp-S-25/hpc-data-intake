@@ -4,6 +4,8 @@
 #SBATCH --error=logs/decompress_tar/decompress_tar_%j.err
 #SBATCH --ntasks=1
 
+# Usage: sbatch decompress_tar.sh <url> <output_directory>
+
 # Check if the correct number of arguments is provided
 if [ "$#" -ne 2 ]; then
     echo "Usage: $0 <tar_file> <destination_directory>"
