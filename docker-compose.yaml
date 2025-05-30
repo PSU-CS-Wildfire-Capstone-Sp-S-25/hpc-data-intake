@@ -1,0 +1,12 @@
+# This is just an example docker compose showing volume mounting
+
+services:
+  wrf:
+    image: ###
+    container_name: wrf
+    restart: always
+
+    volumes:
+      # left side: persistent,
+      # right side: container
+      - /scratch/wdt:/data
