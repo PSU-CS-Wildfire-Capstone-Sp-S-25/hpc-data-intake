@@ -45,11 +45,22 @@ wget --load-cookies /scratch/wdt/nasa_auth/.urs_cookies \
 
 One can use/modify the `wget_nasa_4_years.sh` SLURM job script to download
 multiple years of NASA MERRA-2 data in parallel with wget directly to our shared
-directory. It doesn't take any arguments, but it has some variables in it one
-would modify to wget the desired data.
+directory. It only takes one parameter, `base_year`, which signifies the year
+one before the 4 years you want to download. It downloads (base_year + 1,
+base_year + 4).
 
 ```sh
-sbatch wget_nasa_4_years.sh
+sbatch wget_nasa_4_years.sh [base_year]
+```
+
+I wrote an additional script `submit_nasa_jobs.sh` so I wouldn't have to come
+back every hour to download the next batch of 4 years. It's a simple job runner
+that runs on its own node and automatically submits the next batch afterwards.
+You'll have to modify its contents, where you can set which year it starts and
+ends at, but then you can run it either directly or with sbatch:
+
+```bash
+sbatch submit_nasa_jobs.sh
 ```
 
 The `wget_new_merra2_data.sh` SLURM job script is something one could run to

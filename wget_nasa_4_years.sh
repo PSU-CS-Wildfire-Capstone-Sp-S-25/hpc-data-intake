@@ -3,7 +3,6 @@
 #SBATCH --output=logs/wget/wget_nasa_%A_%a.out
 #SBATCH --error=logs/wget/wget_nasa_%A_%a.err 
 #SBATCH --ntasks=1 
-#SBATCH --cpus-per-task=1 
 #SBATCH --array=1-4
 
 # This downloads NASA MERRA-2 data for 4 years at once, starting from the
@@ -11,7 +10,7 @@
 # be. Creates 4 jobs that download data for the years from BASE_YEAR + 1 to
 # BASE_YEAR + 4.
 
-BASE_YEAR=2013
+BASE_YEAR=$1
 YEAR=$((BASE_YEAR + SLURM_ARRAY_TASK_ID))
 
 # Define the output directory where the data will be saved
