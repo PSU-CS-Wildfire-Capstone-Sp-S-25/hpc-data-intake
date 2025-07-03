@@ -3,7 +3,7 @@
 #SBATCH --output=logs/wget/wget_nasa_%A_%a.out
 #SBATCH --error=logs/wget/wget_nasa_%A_%a.err 
 #SBATCH --ntasks=1 
-#SBATCH --array=1-4
+#SBATCH --array=1
 
 # This downloads NASA MERRA-2 data for 4 years at once, starting from the
 # BASE_YEAR + 1. Just set a URL and include the YEAR variable where it should

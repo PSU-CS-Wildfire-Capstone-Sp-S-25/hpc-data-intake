@@ -4,6 +4,8 @@
 #SBATCH --error=logs/wget/wget_current_%A_%a.err
 #SBATCH --ntasks=1
 
+# THIS IS PROBABLY, CURRENTLY BROKEN. NEED TO TEST FURTHER.
+
 # This is a script one can use to download the latest MERRA-2 data from the NASA
 # website. At the time of writing, it is downloading new data for the year 2025.
 # To use it from the coeus cluster, submit it with the command `sbatch

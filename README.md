@@ -71,3 +71,23 @@ directories. One could submit it as a job like so:
 ```sh
 sbatch wget_nasa_4_years.sh
 ```
+
+### Globus Connect Data Intake Jobs
+
+I also wrote a script to intake data from Globus Connect, which is a service
+that allows for easy transfer of data between Globus and Linux endpoints.
+
+The script `open_globusconnectpersonal.sh` is a SLURM job that can be used to
+transfer data from a Globus Connect endpoint to our shared directory. It
+requires globusconnectpersonal to be installed and configured somewhere. You can
+replicate this by following [this guide by SuperDARN Canada](https://github.com/SuperDARNCanada/globus).
+
+The job script runs for 24 hours to allow a long transfer, and is set up for our
+current use case of transferring FourCastNet data from Globus. It can be
+modified for other use cases as needed.
+
+```bash
+# modify the last line to point to your globusconnectpersonal binary and your desired paths (comma-separated)
+/scratch/wdt/globus-connect-personal/globusconnectpersonal-3.2.7/globusconnectpersonal -start -restrict-paths "/scratch/wdt/"
+# globusconnectpersonal -start -restrict-paths "/path/,/path2/,/path3/"
+```
