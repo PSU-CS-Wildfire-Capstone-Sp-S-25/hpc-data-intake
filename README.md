@@ -78,8 +78,8 @@ I also wrote a script to intake data from Globus Connect, which is a service
 that allows for easy transfer of data between Globus and Linux endpoints.
 
 The script `open_globusconnectpersonal.sh` is a SLURM job that can be used to
-transfer data from a Globus Connect endpoint to our shared directory. It
-requires globusconnectpersonal to be installed and configured somewhere. You can
+transfer data from Globus to our shared directory. It requires
+globusconnectpersonal to be installed and configured somewhere. You can
 replicate this by following [this guide by SuperDARN Canada](https://github.com/SuperDARNCanada/globus).
 
 The job script runs for 24 hours to allow a long transfer, and is set up for our
